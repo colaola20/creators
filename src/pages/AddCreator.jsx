@@ -3,7 +3,7 @@ import "./ShowCreators.css";
 import {Link, useNavigate} from "react-router-dom"
 import {useState} from "react";
 import {supabase} from "../client"
-import { Youtube, Instagram, Twitter } from 'lucide-react';
+import { Youtube, Instagram } from 'lucide-react';
 import x from "../assets/X_icon_2.svg"
 
 export const AddCreator = () => {
@@ -60,7 +60,7 @@ export const AddCreator = () => {
                         <div className="title">
                             <h1>Creatorverse</h1>
                         </div>
-                        <div className="cta">
+                        <div className="cta-box">
                             <Link to="/" className="btn">View All Creators</Link>
                             <Link to="/add" className="btn">Add a creator</Link>
                         </div>

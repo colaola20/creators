@@ -1,0 +1,122 @@
+.card-container {
+    background-color: blue;
+    width: 500px;
+    height: 300px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.card-container img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.creator-info-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.creator-info{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.name-box{
+    display: flex;
+}
+
+.creator-info h2 {
+    color: deepskyblue;
+    margin: 0;
+    text-align: left;
+}
+
+.icons-box{
+    position: absolute;
+    right: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.info-icon, .edit-icon{
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.info-icon:hover {
+    background-color: goldenrod;
+}
+
+.edit-icon:hover {
+    background-color: goldenrod;
+}
+
+.media-icons-box{
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;                  /* space between icon and text */
+    margin-top: 10px;
+}
+
+.icon {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.icon:hover {
+    background-color: deepskyblue;
+}
+
+.x-icon {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.x-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* preserves aspect ratio */
+}
+
+.x-icon:hover{
+    background-color: deepskyblue;
+}
+
+.description {
+    display: flex;
+    overflow: hidden;
+    width: 450px;
+    box-sizing: border-box;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+
+.description p {
+    font-weight: 500;
+}
