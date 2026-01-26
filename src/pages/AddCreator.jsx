@@ -1,9 +1,10 @@
 import background from "../assets/mark-basarab-unsplash.jpg";
 import "./ShowCreators.css";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {useState} from "react";
 
 export const AddCreator = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: "",
         img_url: "",
@@ -21,6 +22,11 @@ export const AddCreator = () => {
         }))
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(formData)
+        navigate("/")
+    }
     return (
             <div className="main-content">
                 <div className = "title-box">
@@ -36,17 +42,66 @@ export const AddCreator = () => {
                     </div>
                 </div>
                 <div className="form-box">
-                    <form>
-                        <lebal>
-                            Name
+                    <form className="user-form" onSubmit={handleSubmit}>
+                        <label>
+                            <h4>Name</h4>
                             <input
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
                             />
-                        </lebal>
+                        </label>
+
+                        <label>
+                            <h4>Image</h4>
+                            <p>Provide a link to an image of your creator. Be sure to include the http://</p>
+                            <input 
+                                name="img_url"
+                                value={formData.img_url}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            <h4>Description</h4>
+                            <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
+                            <input 
+                                name="description"
+                                value={formData.description}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <h2>SOCIAL MEDIA LINKS</h2>
+                        <p>Provide at least one of the creator's social media links.</p>
+                        <label>
+                            <h4>Youtube</h4>
+                            <p>The creator's YouTube handle (without the @)</p>
+                            <input 
+                                name="youtube_url"
+                                value={formData.youtube_url}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            <h4>Twitter</h4>
+                            <p>The creator's Twitter handle (without the @)</p>
+                            <input 
+                                name="twitter_url"
+                                value={formData.twitter_url}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            <h4>Instagram</h4>
+                            <p>The creator's Instagram handle (without the @)</p>
+                            <input 
+                                name="insta_url"
+                                value={formData.insta_url}
+                                onChange={handleChange}
+                            />
+                        </label>
                     </form>
+                    <button className="submit-btn">Submit</button>
                 </div>
             </div>
         )
