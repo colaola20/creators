@@ -1,8 +1,14 @@
 import background from "../assets/mark-basarab-unsplash.jpg";
 import "./ShowCreators.css"
-import {Link} from "react-router-dom"
+import {useState} from "react";
+import {Link} from "react-router-dom";
+import {Card} from "../components/Card"
+import {supabase} from "../client"
 
 export const ShowCreators = () => {
+    const [cardData, setCardData] = useState([]);
+
+
     return (
         <div className="main-content">
             <div className = "title-box">
@@ -16,6 +22,9 @@ export const ShowCreators = () => {
                         <Link to="/add" className="btn">Add a creator</Link>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Card />
             </div>
         </div>
     )

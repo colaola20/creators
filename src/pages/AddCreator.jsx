@@ -2,6 +2,9 @@ import background from "../assets/mark-basarab-unsplash.jpg";
 import "./ShowCreators.css";
 import {Link, useNavigate} from "react-router-dom"
 import {useState} from "react";
+import {supabase} from "../client"
+import { Youtube, Instagram, Twitter } from 'lucide-react';
+import x from "../assets/X_icon_2.svg"
 
 export const AddCreator = () => {
     const navigate = useNavigate()
@@ -22,10 +25,32 @@ export const AddCreator = () => {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formData)
-        navigate("/")
+        const {data, error} = await supabase
+            .from("creators")
+            .insert([
+                {
+                    name: formData.name,
+                    imageURL: formData.img_url,
+                    description: formData.description,
+                    youtubeURL: formData.youtube_url,
+                    twitterURL: formData.twitter_url,
+                    instaURL: formData.insta_url
+                }
+            ])
+            .select()
+        
+        console.log(data)
+        console.log(error)
+
+        if (error) {
+            console.log(error.message);
+            alert("Error saving creator");
+            return;
+        } else {
+            navigate("/")
+        }
     }
     return (
             <div className="main-content">
@@ -65,7 +90,7 @@ export const AddCreator = () => {
                         <label>
                             <h4>Description</h4>
                             <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
-                            <input 
+                            <textarea 
                                 name="description"
                                 value={formData.description}
                                 onChange={handleChange}
@@ -74,7 +99,10 @@ export const AddCreator = () => {
                         <h2>SOCIAL MEDIA LINKS</h2>
                         <p>Provide at least one of the creator's social media links.</p>
                         <label>
-                            <h4>Youtube</h4>
+                            <div className="icon-box">
+                                <Youtube className="icon" color="red"/>
+                                <h4>Youtube</h4>
+                            </div>
                             <p>The creator's YouTube handle (without the @)</p>
                             <input 
                                 name="youtube_url"
@@ -83,8 +111,11 @@ export const AddCreator = () => {
                             />
                         </label>
                         <label>
-                            <h4>Twitter</h4>
-                            <p>The creator's Twitter handle (without the @)</p>
+                            <div className="icon-box">
+                                <img src={x} alt="X icon" className="icon" />
+                                <h4>X</h4>
+                            </div>
+                            <p>The creator's X handle (without the @)</p>
                             <input 
                                 name="twitter_url"
                                 value={formData.twitter_url}
@@ -92,7 +123,10 @@ export const AddCreator = () => {
                             />
                         </label>
                         <label>
-                            <h4>Instagram</h4>
+                            <div className="icon-box">
+                                <Instagram className="icon" color="#FF0069"/>
+                                <h4> Instagram</h4>
+                            </div>
                             <p>The creator's Instagram handle (without the @)</p>
                             <input 
                                 name="insta_url"
@@ -100,8 +134,8 @@ export const AddCreator = () => {
                                 onChange={handleChange}
                             />
                         </label>
+                        <button className="submit-btn" type="submit">Submit</button>
                     </form>
-                    <button className="submit-btn">Submit</button>
                 </div>
             </div>
         )
