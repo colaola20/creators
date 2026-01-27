@@ -31,7 +31,7 @@ export const ShowCreators = () => {
     return (
         <div className="main-content">
             <Hero/>
-            <div className="creators-container">
+            <div id="creators" className="creators-container">
                 {creators && creators.map((creator) => (
                     <Card key={creator.id} creator={creator} onDelete={(id) => setCreators(prev => prev.filter(c => c.id !== id))}/>
                 ))}

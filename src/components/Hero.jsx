@@ -11,7 +11,7 @@ export const Hero = () => {
                     <h1>Creatorverse</h1>
                 </div>
                 <div className="cta-box">
-                    <Link to="/" className="btn">View All Creators</Link>
+                    <a href="/#creators" className="btn">View All Creators</a>
                     <Link to="/add" className="btn">Add a creator</Link>
                 </div>
             </div>

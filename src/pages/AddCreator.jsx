@@ -55,7 +55,7 @@ export const AddCreator = () => {
     return (
             <div className="main-content">
                 <Hero />
-                <div className="form-box">
+                <div id="#form" className="form-box">
                     <form className="user-form" onSubmit={handleSubmit}>
                         <label>
                             <h4>Name</h4>

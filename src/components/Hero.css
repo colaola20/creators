@@ -1,7 +1,7 @@
 .title-box {
     position:relative; /* anchor for absolute children */
     width: 100vw;
-    height: calc(0.80 * 100vh);
+    height: calc(0.5 * 100vh);
     border-bottom: 5px solid goldenrod;
 }
 
@@ -14,7 +14,7 @@
 
 .title-content {
     position: absolute;
-    top: calc(100vh/6);
+    top: 0;
 
     display: flex;
     width: 100%;
@@ -24,6 +24,10 @@
 
 .title {
     font-size: 2.5rem;
+}
+
+.title h1 {
+    margin: 40px;
 }
 
 .cta-box {

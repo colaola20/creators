@@ -50,7 +50,9 @@ export const Card = ({creator, onDelete}) => {
                             <Instagram className="icon"/>
                         </a>
                         <div className="icons-box">
-                            <Info className="info-icon"/>
+                            <Link to={`/view/${creator.id}`}>
+                                <Info className="info-icon"/>
+                            </Link>
                             <Link to={`/edit/${creator.id}`}>
                                 <Pencil className="edit-icon"/>
                             </Link>

@@ -3,6 +3,7 @@ import './App.css'
 import { ShowCreators } from './pages/ShowCreators';
 import { AddCreator } from './pages/AddCreator';
 import { EditCreator } from './pages/EditCreator';
+import { ViewCreator } from "./pages/ViewCreator"
 
 function App() {
   const element = useRoutes([
@@ -17,6 +18,10 @@ function App() {
     {
       path: "/edit/:id",
       element: <EditCreator/>
+    },
+    {
+      path: "/view/:id",
+      element: <ViewCreator/>
     }
   ]);
 
