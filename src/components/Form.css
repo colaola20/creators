@@ -1,0 +1,87 @@
+.form-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.user-form {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-form  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.user-form input{
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: None;
+    background-color: white;
+    min-height: 30px;
+    color: black;
+}
+
+.user-form textarea{
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: None;
+    background-color: white;
+    min-height: 100px;
+    color: black;
+}
+
+.user-form h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    margin-top: 25px;
+    text-align: left;
+    color: goldenrod;
+}
+
+.user-form h4 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    text-align: left;
+    color: goldenrod;
+}
+
+.user-form p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.submit-btn {
+    width: 600px;
+    padding: 14px 28px;
+    font-size: 1.5rem;
+    font-weight: 650;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: goldenrod;
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    border-bottom: 5px solid lightyellow;
+    color: white;
+    box-shadow: 0 10px 24px rgba(236, 234, 234, 0.25);
+}

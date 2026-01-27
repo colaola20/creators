@@ -1,21 +1,11 @@
-import "./ShowCreators.css";
+import "./Form.css"
 import {useNavigate} from "react-router-dom"
-import {useState} from "react";
 import {supabase} from "../client"
 import { Youtube, Instagram } from 'lucide-react';
 import x from "../assets/X_icon_2.svg"
-import {Hero} from "../components/Hero"
 
-export const AddCreator = () => {
+export const Form = ({formData, setFormData, id}) => {
     const navigate = useNavigate()
-    const [formData, setFormData] = useState({
-        name: "",
-        img_url: "",
-        description: "",
-        youtube_url: "",
-        twitter_url: "",
-        insta_url: ""
-    })
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -29,20 +19,10 @@ export const AddCreator = () => {
         e.preventDefault()
         const {data, error} = await supabase
             .from("creators")
-            .insert([
-                {
-                    name: formData.name,
-                    imageURL: formData.img_url,
-                    description: formData.description,
-                    youtubeURL: formData.youtube_url,
-                    twitterURL: formData.twitter_url,
-                    instaURL: formData.insta_url
-                }
-            ])
-            .select()
+            .update(formData)
+            .eq("id", id)
         
         console.log(data)
-        console.log(error)
 
         if (error) {
             console.log(error.message);
@@ -52,10 +32,9 @@ export const AddCreator = () => {
             navigate("/")
         }
     }
+
     return (
-            <div className="main-content">
-                <Hero />
-                <div className="form-box">
+        <div className="form-box">
                     <form className="user-form" onSubmit={handleSubmit}>
                         <label>
                             <h4>Name</h4>
@@ -71,8 +50,8 @@ export const AddCreator = () => {
                             <h4>Image</h4>
                             <p>Provide a link to an image of your creator. Be sure to include the http://</p>
                             <input 
-                                name="img_url"
-                                value={formData.img_url}
+                                name="imageURL"
+                                value={formData.imageURL}
                                 onChange={handleChange}
                             />
                         </label>
@@ -94,8 +73,8 @@ export const AddCreator = () => {
                             </div>
                             <p>The creator's YouTube handle (without the @)</p>
                             <input 
-                                name="youtube_url"
-                                value={formData.youtube_url}
+                                name="youtubeURL"
+                                value={formData.youtubeURL}
                                 onChange={handleChange}
                             />
                         </label>
@@ -106,8 +85,8 @@ export const AddCreator = () => {
                             </div>
                             <p>The creator's X handle (without the @)</p>
                             <input 
-                                name="twitter_url"
-                                value={formData.twitter_url}
+                                name="twitterURL"
+                                value={formData.twitterURL}
                                 onChange={handleChange}
                             />
                         </label>
@@ -118,14 +97,13 @@ export const AddCreator = () => {
                             </div>
                             <p>The creator's Instagram handle (without the @)</p>
                             <input 
-                                name="insta_url"
-                                value={formData.insta_url}
+                                name="instaURL"
+                                value={formData.instaURL}
                                 onChange={handleChange}
                             />
                         </label>
                         <button className="submit-btn" type="submit">Submit</button>
                     </form>
                 </div>
-            </div>
-        )
-    }
+    )
+}
