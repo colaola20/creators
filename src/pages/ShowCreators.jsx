@@ -33,7 +33,7 @@ export const ShowCreators = () => {
             <Hero/>
             <div className="creators-container">
                 {creators && creators.map((creator) => (
-                    <Card key={creator.id} creator={creator}/>
+                    <Card key={creator.id} creator={creator} onDelete={(id) => setCreators(prev => prev.filter(c => c.id !== id))}/>
                 ))}
             </div>
         </div>

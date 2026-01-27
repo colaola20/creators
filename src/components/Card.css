@@ -51,12 +51,13 @@
     gap: 10px;
 }
 
-.info-icon, .edit-icon{
+.info-icon, .edit-icon, .delete-icon{
     padding: 5px;
     width: 30px;
     height: 30px;
     flex-shrink: 0;
     border-radius: 10px;
+    color: white;
 }
 
 .info-icon:hover {
@@ -64,6 +65,10 @@
 }
 
 .edit-icon:hover {
+    background-color: goldenrod;
+}
+
+.delete-icon:hover{
     background-color: goldenrod;
 }
 
@@ -81,6 +86,7 @@
     height: 30px;
     flex-shrink: 0;
     border-radius: 10px;
+    color: white;
 }
 
 .icon:hover {

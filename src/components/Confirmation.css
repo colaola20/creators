@@ -1,0 +1,40 @@
+.confirmation-container{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #111;
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    width: 350px;
+    max-width: 90%;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap:12px;
+    margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background: #444;
+}
+
+.btn.delete {
+  background: crimson;
+}
