@@ -4,6 +4,7 @@ import { ShowCreators } from './pages/ShowCreators';
 import { AddCreator } from './pages/AddCreator';
 import { EditCreator } from './pages/EditCreator';
 import { ViewCreator } from "./pages/ViewCreator"
+import { useEffect, useState } from "react";
 
 function App() {
   const element = useRoutes([
@@ -24,6 +25,14 @@ function App() {
       element: <ViewCreator/>
     }
   ]);
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch("/.netlify/functions/getData")
+      .then(res => res.json())
+      .then(setData);
+  }, []);
 
   return element;
 }
